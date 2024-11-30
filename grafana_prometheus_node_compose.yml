@@ -9,7 +9,7 @@ services:
   prometheus:
     container_name: prometheus
     ports:
-      - '8087:9090'
+      - '9090:9090'
     volumes:
       - '/etc/prometheus/:/etc/prometheus'
     image: 'prom/prometheus'
@@ -18,6 +18,6 @@ services:
   grafana:
     container_name: grafana
     ports:
-      - '8086:3000'
+      - '3000:3000'
     image: 'grafana/grafana'
 
