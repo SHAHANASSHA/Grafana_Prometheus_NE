@@ -4,16 +4,15 @@ services:
     network_mode: host
     volumes:
       - '/:/host:rw,rslave'
-    image: 'prom/node-exporter'
+    image: 'bitnami/node-exporter'
 
   prometheus:
     container_name: prometheus
     ports:
       - '9090:9090'
     volumes:
-      - '/etc/prometheus/:/etc/prometheus'
-    image: 'prom/prometheus'
-    entrypoint: ["sleep", "infinity"]
+      - '/etc/prometheus:/etc/prometheus/'
+    image: 'bitnami/prometheus'
 
   grafana:
     container_name: grafana
