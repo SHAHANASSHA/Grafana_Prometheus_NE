@@ -1,0 +1,23 @@
+services:
+  node-exporter:
+    pid: host
+    network_mode: host
+    volumes:
+      - '/:/host:rw,rslave'
+    image: 'prom/node-exporter'
+
+  prometheus:
+    container_name: prometheus
+    ports:
+      - '8087:9090'
+    volumes:
+      - '/etc/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml'
+    image: 'prom/prometheus'
+    entrypoint: ["sleep", "infinity"]
+
+  grafana:
+    container_name: grafana
+    ports:
+      - '8086:3000'
+    image: 'grafana/grafana'
+
