@@ -11,7 +11,7 @@ services:
     ports:
       - '8087:9090'
     volumes:
-      - '/etc/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml'
+      - '/etc/prometheus/:/etc/prometheus'
     image: 'prom/prometheus'
     entrypoint: ["sleep", "infinity"]
 
